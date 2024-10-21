@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
 import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+import { setError } from "./ui.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -41,6 +42,7 @@ if(registerForm) {
                 
             })
             .catch((error) => {
+                setError("message", "E-mail já cadastrado!")
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode);
@@ -49,6 +51,7 @@ if(registerForm) {
     })
 }
 
+//Login User
 
 const loginForm = document.getElementById("loginForm");
 if(loginForm) {
@@ -62,12 +65,12 @@ if(loginForm) {
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user)
+                sessionStorage.setItem("user", user.uid)
                 window.location.href = "menu.html";
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorMessage)
+                setError("message", "E-mail ou Senha Inválidos!")
+                console.log(error.message)
             });
     })
 }
