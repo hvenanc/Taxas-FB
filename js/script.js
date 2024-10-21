@@ -38,11 +38,10 @@ if(registerForm) {
             .then((userCredential) => {
                 const user = userCredential.user;
                 setUser(user);
-                window.location.href = "login.html";
-                
+                location.reload();
             })
             .catch((error) => {
-                setError("message", "E-mail já cadastrado!")
+                setError("message2", "E-mail já cadastrado!")
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode);
@@ -57,8 +56,8 @@ const loginForm = document.getElementById("loginForm");
 if(loginForm) {
     loginForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
+        const email = document.getElementById("email-lg").value;
+        const password = document.getElementById("password-lg").value;
     
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
