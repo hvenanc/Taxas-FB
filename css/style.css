@@ -4,6 +4,7 @@
     --color3: #8A05BE;
     --color4: #530082;
     --color5: #191919;
+    --color6: rgb(241 90 91);
 }
 
 /* Import Google font - Poppins */
@@ -261,4 +262,19 @@ body {
     border: 1px solid #f5c6cb;
     width: 100vh;
     margin-bottom: 5%;
+}
+
+.logout {
+    color: var(--color1);
+    font-size: large; 
+    cursor: pointer;  
+}
+
+.logout:hover {
+    color: var(--color6);
+}
+
+.span-requerid {
+   color: var(--color6);
+   display: none;
 }

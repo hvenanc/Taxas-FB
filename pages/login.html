@@ -49,9 +49,12 @@
           <header>Criar Conta</header>
           <div id="message2"></div>
           <form id="registerForm">
-            <input type="text" id="email" placeholder="E-mail">
-            <input type="password" id="password" placeholder="Insira sua Senha">
-            <input type="password" placeholder="Confirme a Senha">
+            <span class="span-requerid">E-mail Inválido</span>
+            <input type="text" id="email" class="requerid" placeholder="E-mail" oninput="validEmail()">
+            <span class="span-requerid">A senha deve possuir 8 caracteres</span>
+            <input type="password" id="password" class="requerid" placeholder="Insira sua Senha" oninput="validPassword()">
+            <span class="span-requerid">As senhas não conferem!</span>
+            <input type="password" id="password-confime" class="requerid" placeholder="Confirme a Senha" oninput="confirmePassword()">
             <input type="submit" class="button" value="Criar Conta">
           </form>
           <div class="signup">
@@ -62,23 +65,8 @@
         </div>
       </div>
 
-    <script>
-        let clickHamburger = 0;
-        const hamburger = document.querySelector(".hamburger");
-        const nav = document.querySelector(".nav");
-        const container = document.querySelector(".container");
-        hamburger.addEventListener("click", () => {
-            nav.classList.toggle("active");
-            clickHamburger += 1;
-            if(clickHamburger == 1) {
-                container.style.display = "none";
-            }
-            else {
-                container.style.display = "block";
-                clickHamburger = 0
-            }
-        });
-    </script>
+    <script defer src="../js/validations/register.js"></script>
+    <script defer src="../js/actions.js"></script>
 </body>
 
 </html>

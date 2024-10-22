@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Firebase</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css">
-    <script src="session.js" defer></script>
+     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css">
+    <script defer src="../js/session.js"></script>
+    <title>Template</title>
 </head>
-<body id="main-content">
-    <h1>Taxas Firebase</h1>
-    <form id="taxas">
-        <label for="bandeira">Bandeira do Cartão</label>
-        <input type="text" name="bandeira" id="bandeira">
-        <br>
-        <label for="bandeira">Taxa Débito</label>
-        <input type="text" name="faixa1" id="faixa1">
-        <br>
-        <label for="bandeira">Taxa Crédito 1X</label>
-        <input type="text" name="faixa2" id="faixa2">
-        <br>
-        <label for="bandeira">Taxa Crédito 2X - 6X</label>
-        <input type="text" name="faixa3" id="faixa3">
-        <br>
-        <label for="bandeira">Taxa Crédito 7X - 12X</label>
-        <input type="text" name="faixa4" id="faixa4">
-        <br>
-        <button type="submit">Enviar</button>
-    </form>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-user-secret"></i>
+                Template
+            </a>
+            <button class="hamburger"></button>
+            <ul class="nav-list">
+                <li><a href="#">Modalidades</a></li>
+                <i class="fa-solid fa-right-from-bracket logout">
+                    Sair
+                </i>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>
+        Home
+    </h1>
+
+    <script defer src="../js/actions.js"></script>
 </body>
+
 </html>
