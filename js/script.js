@@ -1,6 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
 import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+import {
+    getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword,
+    signInWithPopup, GoogleAuthProvider
+} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 import { setError } from "./ui.js";
 
 // Your web app's Firebase configuration
@@ -18,6 +21,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth();
+auth.languageCode = 'en';
+const provider = new GoogleAuthProvider();
 
 //Register User
 async function setUser(user) {
@@ -76,4 +81,31 @@ if (loginForm) {
             });
     })
 }
+
+
+//Login Google
+
+const googleLogin = document.querySelector('.loginGoogle');
+if (googleLogin) {
+    googleLogin.addEventListener("click", async (event) => {
+        event.preventDefault();
+
+        signInWithPopup(auth, provider)
+            .then((result) => {
+            
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user;
+                sessionStorage.setItem("user", user.uid);
+                sessionStorage.setItem("userInfos", JSON.stringify(user))
+                window.location.href = "menu.html";
+
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+    })
+}
+
+
 

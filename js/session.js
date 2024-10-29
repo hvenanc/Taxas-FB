@@ -17,3 +17,16 @@ logout.addEventListener("click", function() {
         window.location.href = "login.html";
       }
 })
+
+
+function updateInfoUser() {
+    let info = sessionStorage.getItem("userInfos");
+    let infoJson = JSON.parse(info)
+    console.log(infoJson);
+
+    document.getElementById("userName").textContent = infoJson.displayName;
+    document.getElementById("userEmail").textContent = infoJson.email;
+    document.getElementById("userPhoto").src = infoJson.photoURL;
+}
+
+updateInfoUser()
